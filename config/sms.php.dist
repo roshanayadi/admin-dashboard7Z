@@ -1,0 +1,4 @@
+# SMS Configuration
+SMS_PROVIDER=sparrow
+SMS_API_KEY=
+SMS_SENDER_ID=TheAlert
