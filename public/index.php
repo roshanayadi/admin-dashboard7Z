@@ -11,6 +11,10 @@ if (isset($_SERVER['REQUEST_URI']) && str_starts_with($_SERVER['REQUEST_URI'], $
     $_SERVER['SCRIPT_NAME'] = $subDir . '/index.php';
 }
 
+if (isset($_GET['debug_uri'])) {
+    die('Final REQUEST_URI: ' . $_SERVER['REQUEST_URI']);
+}
+
 // Determine if the application is in maintenance mode...
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
