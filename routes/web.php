@@ -24,6 +24,10 @@ Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('/test-api', function() {
+    return response()->json(['message' => 'Web route is working']);
+});
+
 // Admin Routes (Protected)
 Route::prefix('admin')->middleware('admin.auth')->name('admin.')->group(function () {
 

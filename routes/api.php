@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Route;
 | Public Routes for Frontend
 */
 
+Route::get('/test', function() {
+    return response()->json(['message' => 'API is working']);
+});
+
 Route::prefix('v1')->group(function () {
     // Blog Posts
     Route::get('/blogs', [PublicApiController::class, 'getBlogs']);
