@@ -4,6 +4,13 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// Fix subdirectory deployment - strip the subfolder prefix from REQUEST_URI
+$subDir = '/admin-dashboard7Z';
+if (isset($_SERVER['REQUEST_URI']) && str_starts_with($_SERVER['REQUEST_URI'], $subDir)) {
+    $_SERVER['REQUEST_URI'] = substr($_SERVER['REQUEST_URI'], strlen($subDir)) ?: '/';
+    $_SERVER['SCRIPT_NAME'] = $subDir . '/index.php';
+}
+
 // Determine if the application is in maintenance mode...
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
