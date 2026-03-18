@@ -89,7 +89,7 @@ class PublicApiController extends Controller
     public function getGallery(): JsonResponse
     {
         try {
-            $gallery = GalleryItem::with('author:id,name')
+            $gallery = GalleryItem::with('author:id,full_name')
                 ->orderBy('created_at', 'desc')
                 ->paginate(12);
 
@@ -114,7 +114,7 @@ class PublicApiController extends Controller
     public function getGalleryDetail($id): JsonResponse
     {
         try {
-            $item = GalleryItem::with('author:id,name')->findOrFail($id);
+            $item = GalleryItem::with('author:id,full_name')->findOrFail($id);
 
             // Increment views
             $item->increment('views');
