@@ -46,7 +46,7 @@
                                 {{ ucfirst($user->status) }}
                             </span>
                         </td>
-                        <td>{{ Str::limit($user->notes, 30) }}</td>
+                        <td>{{ \Illuminate\Support\Str::limit($user->notes, 30) }}</td>
                         <td>{{ $user->created_at->format('M d, Y') }}</td>
                         <td>
                             <div style="display:flex;gap:6px;">

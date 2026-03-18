@@ -97,9 +97,9 @@
                         </td>
                         <td>
                             @if($item->subject)
-                                <strong>{{ Str::limit($item->subject, 30) }}</strong><br>
+                                <strong>{{ \Illuminate\Support\Str::limit($item->subject, 30) }}</strong><br>
                             @endif
-                            {{ Str::limit($item->message, 40) }}
+                            {{ \Illuminate\Support\Str::limit($item->message, 40) }}
                         </td>
                         <td>{{ $item->recipient_count }}</td>
                         <td style="color:var(--success);font-weight:600;">{{ $item->success_count }}</td>

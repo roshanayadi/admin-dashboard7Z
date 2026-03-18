@@ -33,7 +33,7 @@
                                 <div style="font-size:12px;color:var(--gray-400);">{{ $item->email }}</div>
                             @endif
                         </td>
-                        <td>{{ Str::limit($item->feedback, 60) }}</td>
+                        <td>{{ \Illuminate\Support\Str::limit($item->feedback, 60) }}</td>
                         <td>
                             @for($i = 1; $i <= 5; $i++)
                                 <i class="fas fa-star" style="color:{{ $i <= $item->rating ? '#f59e0b' : '#e5e7eb' }};font-size:13px;"></i>

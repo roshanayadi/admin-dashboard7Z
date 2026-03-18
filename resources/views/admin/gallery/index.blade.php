@@ -43,7 +43,7 @@
                 </span>
             </div>
             <div class="card-body" style="padding:16px;">
-                <h4 style="font-size:14px;font-weight:600;margin-bottom:4px;">{{ Str::limit($item->title, 40) }}</h4>
+                <h4 style="font-size:14px;font-weight:600;margin-bottom:4px;">{{ \Illuminate\Support\Str::limit($item->title, 40) }}</h4>
                 <div style="font-size:12px;color:var(--gray-400);margin-bottom:12px;">
                     <i class="fas fa-folder"></i> {{ ucfirst($item->category) }}
                     @if($item->location)
