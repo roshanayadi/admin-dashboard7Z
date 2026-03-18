@@ -17,7 +17,7 @@ class PublicApiController extends Controller
     {
         try {
             $blogs = BlogPost::where('status', 'published')
-                ->with('author:id,name')
+                ->with('author:id,full_name')
                 ->orderBy('created_at', 'desc')
                 ->paginate(12);
 
@@ -43,7 +43,7 @@ class PublicApiController extends Controller
     {
         try {
             $blog = BlogPost::where('status', 'published')
-                ->with('author:id,name')
+                ->with('author:id,full_name')
                 ->withCount('comments')
                 ->findOrFail($id);
 
@@ -64,7 +64,7 @@ class PublicApiController extends Controller
         try {
             $blogs = BlogPost::where('status', 'published')
                 ->where('category', $category)
-                ->with('author:id,name')
+                ->with('author:id,full_name')
                 ->orderBy('created_at', 'desc')
                 ->paginate(12);
 
@@ -132,7 +132,7 @@ class PublicApiController extends Controller
     {
         try {
             $gallery = GalleryItem::where('category', $category)
-                ->with('author:id,name')
+                ->with('author:id,full_name')
                 ->orderBy('created_at', 'desc')
                 ->paginate(12);
 
